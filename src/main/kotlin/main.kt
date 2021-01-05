@@ -24,6 +24,21 @@ fun main() {
     println(contaFran.saldo)
     println("=================")
 
+    println("depositando na conta do Alex")
+    deposita(contaAlex, 50.0)
+    println(contaAlex.saldo)
+
+    println("depositando na conta da Fran")
+    deposita(contaFran, 70.0)
+    println(contaFran.saldo)
+
+}
+
+fun deposita(conta: Conta, valor: Double) {
+    conta.saldo += valor
+}
+
+fun testaCopiasEReferencias() {
     // Cópia de dados, não de referências
     val numeroX = 10
     var numeroY = numeroX
@@ -43,7 +58,6 @@ fun main() {
     println("titular conta maria: ${contaMaria.titular}")
     println(contaJoao)
     println(contaMaria)
-
 }
 
 class Conta {
