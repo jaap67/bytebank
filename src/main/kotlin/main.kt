@@ -23,6 +23,27 @@ fun main() {
     println(contaFran.numero)
     println(contaFran.saldo)
     println("=================")
+
+    // Cópia de dados, não de referências
+    val numeroX = 10
+    var numeroY = numeroX
+    numeroY++
+
+    println("numeroX $numeroX")
+    println("numeroY $numeroY")
+
+    // Cópia de referências, altera o mesmo dado em ambos
+    val contaJoao = Conta()
+    contaJoao.titular = "João"
+    var contaMaria = contaJoao
+    contaMaria.titular = "Maria"
+    contaJoao.titular = "João"
+
+    println("titular conta joao: ${contaJoao.titular}")
+    println("titular conta maria: ${contaMaria.titular}")
+    println(contaJoao)
+    println(contaMaria)
+
 }
 
 class Conta {
