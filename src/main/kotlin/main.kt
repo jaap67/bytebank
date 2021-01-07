@@ -1,7 +1,7 @@
 fun main() {
     println("Bem-vindo ao Bytebank")
 
-    val contaAlex = Conta("Alex", 1000)
+    val contaAlex = Conta(titular = "Alex", numero = 1000)
     contaAlex.deposita(-200.0)
 
     println("=================")
@@ -11,7 +11,7 @@ fun main() {
     println("=================")
     println()
 
-    val contaFran = Conta("Fran", 1001)
+    val contaFran = Conta(numero = 1001, titular = "Fran")
     contaFran.deposita(300.0)
 
     println("=================")
@@ -45,7 +45,7 @@ fun main() {
     println(contaFran.saldo)
 
     println("Transferência da conta da Fran para o Alex")
-    if (contaFran.transfere(300.0, contaAlex)) {
+    if (contaFran.transfere(valor = 300.0, destino = contaAlex)) {
         println("Transferência sucedida")
     } else {
         println("Falha na tranferência")
@@ -54,15 +54,12 @@ fun main() {
     println("saldo fran  ${contaFran.saldo}")
 }
 
-class Conta(var titular: String, var numero: Int) {
+class Conta(
+    var titular: String,
+    val numero: Int,
+) {
     var saldo = 0.0
         private set
-
-//    Contrutor secundário, o primário já pode ser declarados as properties dentro dele
-//    constructor(titular: String, numero: Int){
-//        this.titular = titular
-//        this.numero = numero
-//    }
 
     fun deposita(valor: Double) {
         if (valor > 0) {
