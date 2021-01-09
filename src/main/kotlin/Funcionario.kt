@@ -10,5 +10,8 @@ open class Funcionario(
      * nas classes Gerente, Diretor.
      * O formato abaixo pode até mesmo ser substituido por: open val bonificacao get() = salario * 0.1
      * */
-    open val bonificacao: Double get() = salario * 0.1
+    open val bonificacao: Double get() {
+        println("Bonificação Funcionário")
+        return salario * 0.1
+    }
 }

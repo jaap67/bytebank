@@ -1,7 +1,7 @@
 fun main() {
     println("Bem-vindo ao Bytebank")
 
-    val alex = Funcionario(
+    val alex: Funcionario = Funcionario(
         nome = "Alex",
         cpf = "111.111.111-11",
         salario = 1000.0
@@ -12,7 +12,7 @@ fun main() {
     println("salario ${alex.salario}")
     println("bonificação ${alex.bonificacao}")
 
-    val fran = Gerente(
+    val fran: Gerente = Gerente(
         nome = "Fran",
         cpf = "222.222.222-22",
         salario = 2000.0,
@@ -29,7 +29,7 @@ fun main() {
         println("falha na autenticação")
     }
 
-    val gui = Diretor(
+    val gui: Diretor = Diretor(
         nome = "Gui",
         cpf = "333.333.333-33",
         salario = 4000.0,
@@ -48,10 +48,17 @@ fun main() {
         println("falha na autenticação")
     }
 
+    val maria: Analista = Analista(
+        nome = "Maria",
+        cpf = "444.444.444-44",
+        salario = 3000.0
+    )
+
     val calculadora = CalculadoraBonificacao()
     calculadora.registra(alex)
     calculadora.registra(fran)
     calculadora.registra(gui)
+    calculadora.registra(maria)
 
     println("Total de bonificação: ${calculadora.total}")
 }
