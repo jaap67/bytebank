@@ -8,7 +8,8 @@ abstract class FuncionarioAdmin(
     cpf = cpf,
     salario = salario
 ){
-    fun autentica(senha: Int): Boolean {
+    open fun autentica(senha: Int): Boolean {
+        println("Autentica Funcionário Admin")
         if (this.senha == senha) {
             return true
         }
