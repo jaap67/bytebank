@@ -1,3 +1,6 @@
+import modelo.ContaCorrente
+import modelo.ContaPoupanca
+
 fun testaCopiasEReferencias() {
     // Cópia de dados, não de referências
     val numeroX = 10
