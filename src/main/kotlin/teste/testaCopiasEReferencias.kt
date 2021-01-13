@@ -1,3 +1,5 @@
+package teste
+
 import modelo.ContaCorrente
 import modelo.ContaPoupanca
 
