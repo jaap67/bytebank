@@ -20,7 +20,7 @@ fun testaComportamentosConta() {
     println("=================")
     println()
 
-    val fran = Cliente(nome = "Fran", cpf = "222.222.222-22", 4321)
+    val fran = Cliente(nome = "Fran", cpf = "222.222.222-22", senha = 4321)
     val contaFran = ContaPoupanca(numero = 1001, titular = fran)
     contaFran.deposita(300.0)
 
