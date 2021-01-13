@@ -1,7 +1,4 @@
-package modelo
-
-import modelo.Autenticavel
-import modelo.Funcionario
+package br.com.alura.bytebank.modelo
 
 abstract class FuncionarioAdmin(
     nome: String,
@@ -14,8 +11,8 @@ abstract class FuncionarioAdmin(
     salario = salario
 ), Autenticavel {
     /**
-     * Aqui foi retirado o modelo.Autenticavel dos filhos e colocado diretamente na classe mãe, no
-     * caso aqui em modelo.FuncionarioAdmin, pois fica mais sucinto o uso em apenas um local a
+     * Aqui foi retirado o br.com.alura.bytebank.modelo.Autenticavel dos filhos e colocado diretamente na classe mãe, no
+     * caso aqui em br.com.alura.bytebank.modelo.FuncionarioAdmin, pois fica mais sucinto o uso em apenas um local a
      * implementação de autenticavel.
      */
     override fun autentica(senha: Int): Boolean {
