@@ -22,6 +22,12 @@ fun main() {
     imprime(1)
     imprime(1.0)
     imprime(endereco)
+
+    val objeto: Any = Any()
+    imprime(objeto)
+
+    val teste: Any = imprime(endereco)
+    println(teste)
 }
 
 fun imprime(){
@@ -36,4 +42,9 @@ fun imprime(valor: Double) {
 
 }
 
-fun imprime(endereco: Endereco){}
+//fun imprime(endereco: Endereco){}
+
+fun imprime(valor: Any) : Any {
+    println(valor)
+    return valor
+}
