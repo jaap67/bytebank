@@ -7,18 +7,20 @@ import br.com.alura.bytebank.teste.testaFuncionarios
 
 fun main() {
 
-//    val endereco = Endereco()
-//
-//    val objeto: Any = Any()
-//
-//    imprime(objeto)
-//    imprime(1)
-//    imprime(1.0)
-//    val teste: Any = imprime(endereco)
-//    println(teste)
-//
-//    testaFuncionarios()
-    testaAutenticacaoTiposDiferentes()
+    val endereco = Endereco(logradouro = "Rua Vergueiro", complemento = "Alura")
+    val enderecoNovo = Endereco(bairro = "Vila Mariana", numero = 1000)
+    println(endereco.equals(endereco)) // Equals()
+
+    println(endereco.hashCode())
+    println(enderecoNovo.hashCode()) // HashCode()
+
+    println(endereco.toString())
+    println(enderecoNovo.toString()) // toString()
+
+    println("${endereco.javaClass}@${Integer.toHexString(endereco.hashCode())}")
+
+
+
 }
 
 fun imprime(valor: Any) : Any{
