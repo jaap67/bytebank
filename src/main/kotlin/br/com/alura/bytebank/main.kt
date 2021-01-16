@@ -7,9 +7,17 @@ import br.com.alura.bytebank.teste.testaFuncionarios
 
 fun main() {
 
-    val endereco = Endereco(logradouro = "Rua Vergueiro", complemento = "Alura")
-    val enderecoNovo = Endereco(bairro = "Vila Mariana", numero = 1000)
-    println(endereco.equals(endereco)) // Equals()
+    val endereco = Endereco(
+        logradouro = "Rua Vergueiro",
+        complemento = "Alura",
+        cep = "00000-000"
+    )
+    val enderecoNovo = Endereco(
+        logradouro = "Rua Vergueiro",
+        complemento = "Alura",
+        cep = "00000-000"
+    )
+    println(endereco.equals(enderecoNovo)) // Equals()
 
     println(endereco.hashCode())
     println(enderecoNovo.hashCode()) // HashCode()
