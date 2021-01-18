@@ -1,7 +1,6 @@
 package br.com.alura.bytebank
 
 fun main() {
-
     println("início main")
     funcao1()
     println("fim main")
