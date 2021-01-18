@@ -5,11 +5,6 @@ import java.lang.ClassCastException
 
 fun main() {
     println("início main")
-    try {
-        10/0
-    } catch (e: ArithmeticException) {
-        println("ArithimeticException foi pegada")
-    }
     funcao1()
     println("fim main")
 }
@@ -19,6 +14,10 @@ fun funcao1() {
     try {
         funcao2()
     } catch (e: ClassCastException) {
+        println(e.message)
+        println(e.stackTrace)
+        println(e.cause)
+        e.printStackTrace()
         println("ClassCastException foi pegada")
     }
     println("fim funcao1")
@@ -33,4 +32,3 @@ fun funcao2() {
     }
     println("fim funcao2")
 }
-
