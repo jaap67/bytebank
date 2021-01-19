@@ -5,39 +5,6 @@ import java.lang.ClassCastException
 
 fun main() {
     println("início main")
-
-    val entrada: String = "1.0"
-
-    val valorRecebido: Double? = try {
-        entrada.toDouble()
-    } catch (e: NumberFormatException) {
-        println("Problema na conversão")
-        e.printStackTrace()
-        null
-    }
-
-//    val valorComTaxa: Double? = if (valorRecebido != null) {
-//        valorRecebido + 0.1
-//    } else {
-//        null
-//    }
-
-    val valorComTaxa: Double? = when {
-        valorRecebido != null -> {
-            valorRecebido + 0.1
-        }
-        else -> {
-            null
-        }
-    }
-
-    if (valorComTaxa != null) {
-        println("Valor recebido: $valorComTaxa")
-    }else {
-        println("valor inválido")
-    }
-
-    "1".toInt()
     funcao1()
     println("fim main")
 }
@@ -58,7 +25,7 @@ fun funcao2() {
     for (i in 1..5) {
         println(i)
         val endereco = Any()
-        endereco as Endereco
+        throw ClassCastException()
     }
     println("fim funcao2")
 }
