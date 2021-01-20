@@ -4,9 +4,9 @@ import br.com.alura.bytebank.exception.FalhaAutenticacaoException
 import br.com.alura.bytebank.exception.SaldoInsuficienteException
 
 abstract class Conta(
-    var titular: Cliente,
+    val titular: Cliente,
     val numero: Int,
-) : Autenticavel{
+) : Autenticavel by titular {
     var saldo = 0.0
         protected set
 
@@ -21,9 +21,9 @@ abstract class Conta(
         total++
     }
 
-    override fun autentica(senha: Int): Boolean {
-        return titular.autentica(senha)
-    }
+//    override fun autentica(senha: Int): Boolean {
+//        return titular.autentica(senha)
+//    }
 
     fun deposita(valor: Double) {
         if (valor > 0) {
@@ -41,10 +41,10 @@ abstract class Conta(
                         "valor a ser sacado: $valor"
             )
         }
-        if (!autentica(senha)){
+        if (!autentica(senha)) {
             throw FalhaAutenticacaoException()
         }
-        throw NumberFormatException()
+//        throw NumberFormatException()
         saldo -= valor
         destino.deposita(valor)
     }
