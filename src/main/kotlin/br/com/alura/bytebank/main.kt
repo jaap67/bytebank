@@ -1,20 +1,29 @@
 package br.com.alura.bytebank
 
-import br.com.alura.bytebank.teste.testaNullable
-
 fun main() {
 
-    val minhaFuncao: () -> Unit = ::teste
-    println(minhaFuncao())
-    val minhaFuncaoClasses: () -> Unit = Teste()
-    println(minhaFuncaoClasses())
+//    val teste = Teste()
+//    println(teste)
+//    teste()
+
+    val teste = Teste()
+    teste(10)
+    val testeFuncao: () -> Unit = Teste()
+    testeFuncao()
 }
 
-fun teste() {
-    println("executa teste")
-}
+//class Teste {
+//    operator fun invoke() {
+//        println("executa invoke do Teste")
+//    }
+//}
 
 class Teste : () -> Unit {
+
+    operator fun invoke(valor: Int){
+        println(valor)
+    }
+
     override fun invoke() {
         println("executa invoke do Teste")
     }
