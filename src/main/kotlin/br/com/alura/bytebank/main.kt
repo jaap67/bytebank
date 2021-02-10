@@ -1,6 +1,8 @@
 package br.com.alura.bytebank
 
+import br.com.alura.bytebank.modelo.Autenticavel
 import br.com.alura.bytebank.modelo.Endereco
+import br.com.alura.bytebank.modelo.SistemaInterno
 
 fun main() {
 
@@ -19,4 +21,23 @@ fun main() {
     ).filter { endereco -> endereco.complemento.isNotEmpty() }
         .let(::println)
 
+    soma(1, 5) {
+        println(it)
+    }
+
+    val autenticavel = object : Autenticavel {
+        val senha = 1234
+        override fun autentica(senha: Int) = this.senha == senha
+    }
+
+    SistemaInterno().entra(autenticavel, 1234) {
+        println("Realizar pagamento")
+    }
+
+}
+
+fun soma(a: Int, b: Int, resultado: (Int) -> Unit) {
+    println("antes da soma")
+    resultado(a + b)
+    println("depois da soma")
 }
