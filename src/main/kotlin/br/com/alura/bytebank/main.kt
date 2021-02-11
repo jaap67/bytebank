@@ -18,21 +18,19 @@ fun main() {
         Endereco(complemento = "caasa"),
         Endereco(),
         Endereco(complemento = "apartamento")
-    ).filter { endereco -> endereco.complemento.isNotEmpty() }
-        .let(::println)
+    ).filter (predicate = { endereco -> endereco.complemento.isNotEmpty() })
+        .let(block = (::println))
 
-    soma(1, 5) {
-        println(it)
-    }
+    soma(1, 5, resultado = (::println))
 
     val autenticavel = object : Autenticavel {
         val senha = 1234
         override fun autentica(senha: Int) = this.senha == senha
     }
 
-    SistemaInterno().entra(autenticavel, 1234) {
+    SistemaInterno().entra(autenticavel, 1234, autenticado = {
         println("Realizar pagamento")
-    }
+    })
 
 }
 
