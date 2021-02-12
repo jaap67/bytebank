@@ -10,9 +10,12 @@ fun main() {
 //    val enderecoEmMaiusculo = "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
 //    println(enderecoEmMaiusculo)
 
-    Endereco(logradouro = "Rua vergueiro", numero = 3185).apply {
+    Endereco(logradouro = "Rua vergueiro", numero = 3185).run {
         "$logradouro, $numero".toUpperCase()
-    }.let (::println)
+    }.let {
+        enderecoEmMaiusculo: String ->
+        println(enderecoEmMaiusculo)
+    }
 
     listOf(
         Endereco(complemento = "casa"),
