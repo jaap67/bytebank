@@ -17,7 +17,7 @@ abstract class Conta(
     }
 
     init {
-        println("Criando conta")
+//        println("Criando conta")
         total++
     }
 

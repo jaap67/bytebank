@@ -1,51 +1,50 @@
 package br.com.alura.bytebank
 
-import br.com.alura.bytebank.modelo.Autenticavel
+import br.com.alura.bytebank.modelo.Cliente
+import br.com.alura.bytebank.modelo.ContaPoupanca
 import br.com.alura.bytebank.modelo.Endereco
-import br.com.alura.bytebank.modelo.SistemaInterno
 
-fun main() {
-
-//    val endereco = Endereco(logradouro = "Rua vergueiro", numero = 3185)
-//    val enderecoEmMaiusculo = "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
-//    println(enderecoEmMaiusculo)
-
-    val endereco = Endereco()
-        .also { println("Criando endereço") }
-        .apply {
-        logradouro = "Rua vergueiro"
-        numero = 3185
-    }
-
-    with(endereco) {
-        "$logradouro, $numero".toUpperCase()
-    }.let {
-        enderecoEmMaiusculo: String ->
-        println(enderecoEmMaiusculo)
-    }
-
-    listOf(
-        Endereco(complemento = "casa"),
-        Endereco(),
-        Endereco(complemento = "apartamento")
-    ).filter (predicate = { endereco -> endereco.complemento.isNotEmpty() })
-        .let(block = (::println))
-
-    soma(1, 5, resultado = (::println))
-
-    val autenticavel = object : Autenticavel {
-        val senha = 1234
-        override fun autentica(senha: Int) = this.senha == senha
-    }
-
-    SistemaInterno().entra(autenticavel, 1234, autenticado = {
-        println("Realizar pagamento")
-    })
+fun main(){
 
 }
 
-fun soma(a: Int, b: Int, resultado: (Int) -> Unit) {
-    println("antes da soma")
-    resultado(a + b)
-    println("depois da soma")
+fun testaRun() {
+    val taxaAnual = 0.05
+    val taxaMensal = taxaAnual / 12
+    println("taxa mensal $taxaMensal")
+
+    val contaPoupanca = ContaPoupanca(Cliente(nome = "Alex", cpf = "111.111.111-11", senha = 1234), 1000)
+
+    contaPoupanca
+        .run {
+            deposita(1000.0)
+            saldo * taxaMensal
+        }.let { rendimentoMensal ->
+            println("rendimento mensal $rendimentoMensal")
+        }
+
+    val rendimentoAnual = run {
+        var saldo = contaPoupanca.saldo
+        println("saldo: $saldo")
+        repeat(12) {
+            saldo += saldo * taxaMensal
+        }
+        saldo
+    }
+    println("simulação rendimento anual $rendimentoAnual")
+}
+
+fun testaWith() {
+    with(Endereco()) {
+        logradouro = "rua vergueiro"
+        numero = 3185
+        bairro = "Vila Mariana"
+        cidade = "São Paulo"
+        estado = "SP"
+        cep = "02310-063"
+        complemento = "Apartamento"
+        completo()
+    }.let { enderecoCompleto: String ->
+        println(enderecoCompleto)
+    }
 }
